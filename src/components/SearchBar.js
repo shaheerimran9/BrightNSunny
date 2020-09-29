@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 const SearchBar = (props) => {
     const [query, setQuery] = useState('');
-    const [unit, setUnit] = useState('imperial');
+    const [unit, setUnit] = useState({queryUnit: 'imperial', degreeUnit: 'F'});
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        props.onSubmit(query, unit);
+        props.onSubmit(query, unit.queryUnit, unit.degreeUnit);
         setQuery('');
     };
 
@@ -15,11 +15,11 @@ const SearchBar = (props) => {
         <form onSubmit={e => handleFormSubmit(e)}>
             <div className="unit">
                 <h3
-                    className={unit === 'imperial' ? 'unit-active' : ''}
-                    onClick={() => setUnit('imperial')}>F°</h3>
+                    className={unit.queryUnit === 'imperial' ? 'unit-active' : ''}
+                    onClick={() => setUnit({queryUnit: 'imperial', degreeUnit: 'F'})}>F°</h3>
                 <h3
-                    className={unit === 'metric' ? 'unit-active' : ''}
-                    onClick={() => setUnit('metric')}>C°</h3>
+                    className={unit.queryUnit === 'metric' ? 'unit-active' : ''}
+                    onClick={() => setUnit({queryUnit: 'metric', degreeUnit: 'C'})}>C°</h3>
             </div>
             <input
                 type="text"

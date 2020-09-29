@@ -80,11 +80,6 @@ html {
     transition: background-color .3s ease;
 }
 
-/* .unit h3:hover {
-    background-color: rgb(255, 255, 255);
-    transition: background-color .3s ease;
-} */
-
 .unit .unit-active{
     background-color: rgb(255, 255, 255);
 }
@@ -96,8 +91,14 @@ html {
 }
 
 .temperature {
-    font-size: 15rem;
+    font-size: 13rem;
     color: white;
+}
+
+.forecast {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 1.5rem;
 }
 
 /* Location */

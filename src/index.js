@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Header from './components/Header';
@@ -9,22 +9,34 @@ import './styles.css'
 
 const App = () => {
     const [weatherData, setWeatherData] = useState({
-        temp: '60',
+        temp: [
+            {
+                temperature: '60',
+                unit: 'F'
+            }
+        ],
         location: 'London, GB',
+        forecast: 'Cloudy',
     });
 
-    const handleCitySearch = async (query, unit) => {
+    const handleCitySearch = async (query, queryUnit, degreeUnit) => {
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, {
             params: {
                 q: query,
                 appid: '56ad602a4c8d1cf87ccee85e614a9e5c',
-                units: unit,
+                units: queryUnit,
             }
         })
-
+        
         setWeatherData({
-            temp: Math.round(response.data.main.temp),
+            temp: [
+                {
+                    temperature: Math.round(response.data.main.temp),
+                    unit: degreeUnit,
+                }
+            ],
             location: `${response.data.name}, ${response.data.sys.country}`,
+            forecast: `${response.data.weather[0].description.charAt(0).toUpperCase()}${response.data.weather[0].description.slice(1)}`,
         })
     };
 
@@ -32,7 +44,10 @@ const App = () => {
         <div className="container">
             <Header />
             <SearchBar onSubmit={handleCitySearch} />
-            <Temperature temperature={weatherData.temp} />
+            <Temperature
+                temperature={weatherData.temp[0].temperature}
+                unit={weatherData.temp[0].unit}
+                forecast={weatherData.forecast} />
             <Location location={weatherData.location} />
         </div>
     )
