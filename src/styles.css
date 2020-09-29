@@ -64,6 +64,30 @@ html {
     cursor: text;
 }
 
+.unit {
+    display: flex;
+    justify-content: center;
+}
+
+.unit h3 {
+    font-size: 2rem;
+    margin: 0 .5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+/* .unit h3:hover {
+    background-color: rgb(255, 255, 255);
+    transition: background-color .3s ease;
+} */
+
+.unit .unit-active{
+    background-color: rgb(255, 255, 255);
+}
 
 /* Temperature Wrapper */
 .temperature-wrapper {
@@ -87,11 +111,12 @@ html {
 @media(max-width: 500px) {
     .header {
         padding: 2rem 1rem;
-        margin-bottom: 3.5rem;
+        margin-bottom: 2rem;
     }
 
     .searchbar {
-        margin: 3rem auto;
+        margin: 1.75rem auto;
+        width: 80%;
     }
 
     .temperature-wrapper {
