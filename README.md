@@ -7,4 +7,4 @@ A weather application that is powered by the Open Weather Map API. It allows use
 - Open Weather Map API
 
 ### Live Link
-Click [here](https://brightnsunny.netlify.app/) to try out the Weather App live.
+Click [here](https://shaheer-brightnsunny.netlify.app/) to try out the Weather App live.
