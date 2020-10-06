@@ -23,7 +23,7 @@ const App = () => {
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, {
             params: {
                 q: query,
-                appid: '56ad602a4c8d1cf87ccee85e614a9e5c',
+                appid: '5414838647c954a8d21bc5e0a83a6c2e',
                 units: queryUnit,
             }
         })
